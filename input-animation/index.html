@@ -1,0 +1,260 @@
+<html>
+  <head>
+    <style>
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        -webkit-font-smoothing: antialiased;
+        margin: 50px 100px;
+      }
+
+      .container {
+        display: flex;
+      }
+
+      .buttons {
+        padding-top: 40px;
+      }
+
+      .button + .button {
+        margin-top: 20px;
+      }
+
+      .button {
+        width: 100px;
+        height: 100px;
+        text-align: center;
+        line-height: 100px;
+        border-radius: 8px;
+        color: #FDFEFF;
+        background: linear-gradient(0deg, #13161D, #0C0F16);
+        box-shadow: inset 0 0 12px 0 rgba(12, 15, 22, 0.5), inset 0 1px 5px 0 #FFFFFF, 0 1px 28px 0 rgba(12, 15, 22, 0.3);
+        font-size: 34px;
+        transition-property: transform, box-shadow;
+        transition-duration: 100ms;
+        transition-timing-function: ease-out;
+      }
+
+      .button.pressed {
+        transform: scale(0.9);
+        box-shadow: inset 0 0 12px 0 rgba(12, 15, 22, 0.5), inset 0 1px 5px 0 #FFFFFF, 0 1px 10px 0 rgba(12, 15, 22, 0.3);
+      }
+
+      .utf-table,
+      .file-views {
+        margin-left: 90px;
+      }
+
+      .table-title {
+        color: #868E96;
+        height: 40px;
+        font-size: 24px;
+        padding-left: 12px;
+      }
+
+      .table-code + .table-code {
+        margin-top: 20px
+      }
+
+      .table-code {
+        display: flex;
+        align-items: center;
+        height: 100px;
+        font-family: monospace;
+        font-size: 24px;
+        letter-spacing: 2px;
+      }
+
+      .table-bites {
+        padding: 10px 12px;
+        border-radius: 8px;
+        background-color: transparent;
+        transition-property: background-color;
+        transition-duration: 100ms;
+        transition-timing-function: ease-out;
+      }
+
+      .table-bites.highlighted {
+        background-color: #C4DCF5;
+      }
+
+      .rendered-file-title {
+        height: 50px;
+        font-size: 24px;
+        color: #868E96;
+      }
+
+      .rendered-file-symbol + .rendered-file-symbol {
+        margin-left: 3px;
+      }
+
+      .rendered-file-symbol,
+      .raw-file-bites {
+        opacity: 0;
+        transform: scale(0);
+        transition: transform, opacity;
+        transition-duration: 100ms;
+        transition-timing-function: ease-out;
+      }
+
+      .rendered-file-symbol.visible,
+      .raw-file-bites.visible {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      .raw-file-title {
+        color: #868E96;
+        height: 50px;
+        margin-top: 40px;
+        font-size: 24px;
+      }
+
+      .rendered-file-content,
+      .raw-file-content {
+        display: flex;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        width: 500px;
+        height: 243px;
+        padding: 25px 30px;
+        box-sizing: border-box;
+        color: #000000;
+        background-color: #F2F6FA;
+        border-radius: 12px;
+        font-size: 32px;
+      }
+
+      .raw-file-content {
+        font-family: monospace;
+        padding-bottom: 78px;
+      }
+
+      .raw-file-bites {
+        margin-right: 15px;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="buttons">
+        <div class="button"><</div>
+        <div class="button">D</div>
+        <div class="button">I</div>
+        <div class="button">V</div>
+        <div class="button">></div>
+      </div>
+
+      <div class="utf-table">
+        <div class="table-title">UTF-8</div>
+        <div class="codes">
+          <div class="table-code">
+            <div class="table-bites">
+              <span class="table-code-part">0101</span>
+              <span class="table-code-part">0001</span>
+            </div>
+          </div>
+          <div class="table-code">
+            <div class="table-bites">
+              <span class="table-code-part">1000</span>
+              <span class="table-code-part">0101</span>
+            </div>
+          </div>
+          <div class="table-code">
+            <div class="table-bites">
+              <span class="table-code-part">1100</span>
+              <span class="table-code-part">0111</span>
+            </div>
+          </div>
+          <div class="table-code">
+            <div class="table-bites">
+              <span class="table-code-part">0011</span>
+              <span class="table-code-part">1100</span>
+            </div>
+          </div>
+          <div class="table-code">
+            <div class="table-bites">
+              <span class="table-code-part">0000</span>
+              <span class="table-code-part">1101</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="file-views">
+        <div class="rendered-file">
+          <div class="rendered-file-title">Rendered Content</div>
+          <div class="rendered-file-content">
+            <div class="rendered-file-symbol">&lt;</div>
+            <div class="rendered-file-symbol">D</div>
+            <div class="rendered-file-symbol">I</div>
+            <div class="rendered-file-symbol">V</div>
+            <div class="rendered-file-symbol">&gt;</div>
+          </div>
+
+        </div>
+        <div class="raw-file">
+          <div class="raw-file-title">Raw Content</div>
+          <div class="raw-file-content">
+            <div class="raw-file-bites">01010001</div>
+            <div class="raw-file-bites">10000101</div>
+            <div class="raw-file-bites">11000111</div>
+            <div class="raw-file-bites">00111100</div>
+            <div class="raw-file-bites">00001101</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+
+      const buttons = document.querySelectorAll('.button')
+      const tableBites = document.querySelectorAll('.table-bites')
+      const renderedFileSymbols = document.querySelectorAll('.rendered-file-symbol')
+      const rawFileBites = document.querySelectorAll('.raw-file-bites')
+
+      let pressedButtonIndex = -1
+
+      function frame () {
+        buttons.forEach((button, index) => {
+          button.classList.toggle('pressed', index === pressedButtonIndex)
+          tableBites[index].classList.toggle('highlighted', index === pressedButtonIndex)
+        })
+
+        if (renderedFileSymbols[pressedButtonIndex]) {
+          renderedFileSymbols[pressedButtonIndex].classList.add('visible')
+        }
+
+        if (rawFileBites[pressedButtonIndex]) {
+          rawFileBites[pressedButtonIndex].classList.add('visible')
+        }
+
+        setTimeout(() => {
+          pressedButtonIndex++
+
+          if (pressedButtonIndex === 5) {
+            pressedButtonIndex = -1
+
+            renderedFileSymbols.forEach((symbol) => {
+              symbol.classList.remove('visible')
+            })
+            rawFileBites.forEach((bites) => {
+              bites.classList.remove('visible')
+            })
+
+            buttons[buttons.length - 1].classList.remove('pressed')
+            tableBites[tableBites.length - 1].classList.remove('highlighted')
+          } else {
+            window.requestAnimationFrame(frame)
+          }
+
+        }, 1000)
+      }
+
+      frame()
+
+    </script>
+  </body>
+</html>
