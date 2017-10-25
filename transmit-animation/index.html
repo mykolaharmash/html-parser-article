@@ -1,0 +1,175 @@
+<html>
+  <head>
+
+    <style>
+      body {
+        display: flex;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        -webkit-font-smoothing: antialiased;
+        margin: 50px 100px;
+      }
+
+      .sender {
+        position: relative;
+        top: 229px;
+        width: 163px;
+        height: 112px;
+        background-image: url('./Sender.svg');
+      }
+
+      .sender__bit {
+        opacity: 0;
+        transform: scale(0) translateX(0px);
+        position: relative;
+        top: 23px;
+        left: 37px;
+        width: 33px;
+        height: 66px;
+        font-size: 54px;
+        text-align: center;
+      }
+
+      .sender__bit.transitions {
+        transition-property: opacity, transform;
+        transition-duration: 100ms;
+        transition-timing-function: ease-out;
+      }
+
+      .sender__bit.visible {
+        opacity: 1;
+        transform: scale(1) translateX(0px);
+      }
+
+      .sender__bit.sending {
+        opacity: 0;
+        transform: scale(0.5) translateX(70px);
+      }
+
+      .browser {
+        position: relative;
+        left: 200px;
+        width: 781px;
+        height: 572px;
+        background-image: url('./Browser.svg');
+      }
+
+      #canvas {
+        position: absolute;
+        top: 236px;
+        left: 213px;
+        width: 300px;
+        height: 200px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <canvas id="canvas" width="600" height="400"></canvas>
+
+    <div class="sender">
+      <div class="sender__bit">0</div>
+    </div>
+
+    <div class="browser">
+    </div>
+
+    <script type="text/javascript">
+
+      const bitElement = document.querySelector('.sender__bit')
+
+      const bitsString = '0100111001'
+      const bitsArray = bitsString.split('')
+      let bitIndex = 0
+
+      function sendBit (bit) {
+        bitElement.classList.remove('transitions')
+        bitElement.classList.remove('visible')
+        bitElement.classList.remove('sending')
+
+        setTimeout(() => {
+          bitElement.textContent = bit
+
+          bitElement.classList.add('transitions')
+          bitElement.classList.add('visible')
+        }, 10)
+
+        setTimeout(() => {
+          bitElement.classList.add('sending')
+
+          animateWave()
+        }, 500)
+
+
+        setTimeout(() => {
+          bitIndex++
+          if (bitIndex < bitsArray.length) {
+            sendBit(bitsArray[bitIndex])
+          }
+        }, 3000)
+      }
+
+      const canvas = document.getElementById('canvas')
+      const context = canvas.getContext('2d')
+
+      context.scale(2,2);
+      context.imageSmoothingEnabled = true
+
+      const canvasWidth = canvas.clientWidth
+      const canvasHeight = canvas.clientHeight
+
+      function normalDistr (x, mean, variance) {
+        return (1 / Math.sqrt(2 * Math.PI * variance)) * Math.pow(2.718, -1 * (Math.pow(x - mean, 2) / 2 * variance))
+      }
+
+      function drawWave (phase) {
+        context.fillStyle = 'white'
+        context.fillRect(0, 0, canvasWidth, canvasHeight)
+
+        context.strokeStyle = '#8A9DB5'
+        context.lineWidth = 5
+        const period = Math.PI * 2
+        const periods = 5
+
+        const normalDistrRange = 7
+        const ampNormalDistrRange = 15
+        const maxPhase = 100
+
+        context.beginPath()
+        context.moveTo(0, canvasHeight / 2)
+
+        for (let i = 0; i < period * periods; i += 0.2) {
+          const x = i * canvasWidth / (period * periods)
+          const normalDistrKoef = normalDistr(x / (canvasWidth / normalDistrRange) - (normalDistrRange / 2), 0, 4)
+
+          const amplitudeKoef = normalDistr(phase / (maxPhase / ampNormalDistrRange) - (ampNormalDistrRange / 2), -0.5, 0.2)
+
+          const y = amplitudeKoef * ((Math.sin(i - phase) * normalDistrKoef * canvasHeight)) + (canvasHeight / 2 - 0.5)
+
+          context.lineTo(x, y)
+        }
+
+        context.stroke()
+
+        context.fillRect(0, 0, 40, canvasHeight)
+        context.fillRect(canvasWidth - 40, 0, canvasWidth, canvasHeight)
+
+        phase += 0.6
+
+        if (phase < maxPhase) {
+          window.requestAnimationFrame(() => drawWave(phase))
+        }
+      }
+
+      function animateWave () {
+        let phase = 0
+
+        window.requestAnimationFrame(() => drawWave(phase))
+      }
+
+      sendBit(bitsArray[bitIndex])
+
+    </script>
+
+  </body>
+
+</html>
