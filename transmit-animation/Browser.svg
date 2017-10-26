@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="781px" height="572px" viewBox="0 0 781 572" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="766px" height="572px" viewBox="0 0 766 572" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
     <title>Browser</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Artboard" transform="translate(-604.000000, -227.000000)">
-            <g id="Browser" transform="translate(607.000000, 227.000000)">
-                <g id="Tab" transform="translate(269.000000, 0.000000)" fill="#E6EAF0">
+        <g id="Artboard" transform="translate(-619.000000, -227.000000)">
+            <g id="Browser" transform="translate(622.000000, 227.000000)">
+                <g id="Tab" transform="translate(254.000000, 0.000000)" fill="#E6EAF0">
                     <rect id="Rectangle-2" x="14" y="0" width="188" height="52" rx="7"></rect>
                     <g id="corner" transform="translate(0.000000, 31.000000)">
                         <path d="M14,0.5132009 L14,14 L0.5132009,14 L5.0264018,14 C8.14671739,14 9.27821922,13.6751104 10.41896,13.0650355 C11.5597007,12.4549607 12.4549607,11.5597007 13.0650355,10.41896 C13.6751104,9.27821922 14,8.14671739 14,5.0264018 L14,0.5132009 Z" id="Combined-Shape"></path>
@@ -16,7 +16,7 @@
                         <path d="M14,0.838051287 L14,14 L0.838051287,14 L5.0264018,14 C8.14671739,14 9.27821922,13.6751104 10.41896,13.0650355 C11.5597007,12.4549607 12.4549607,11.5597007 13.0650355,10.41896 C13.6751104,9.27821922 14,8.14671739 14,5.0264018 L14,0.838051287 Z" id="Combined-Shape"></path>
                     </g>
                 </g>
-                <g id="Active-Tab" transform="translate(77.000000, 0.000000)" fill="#CAD3DE">
+                <g id="Active-Tab" transform="translate(62.000000, 0.000000)" fill="#CAD3DE">
                     <rect id="Rectangle-2" x="14" y="0" width="188" height="52" rx="7"></rect>
                     <g id="corner" transform="translate(0.000000, 31.000000)">
                         <path d="M14,0.5132009 L14,14 L0.5132009,14 L5.0264018,14 C8.14671739,14 9.27821922,13.6751104 10.41896,13.0650355 C11.5597007,12.4549607 12.4549607,11.5597007 13.0650355,10.41896 C13.6751104,9.27821922 14,8.14671739 14,5.0264018 L14,0.5132009 Z" id="Combined-Shape"></path>
@@ -25,13 +25,10 @@
                         <path d="M14,0.838051287 L14,14 L0.838051287,14 L5.0264018,14 C8.14671739,14 9.27821922,13.6751104 10.41896,13.0650355 C11.5597007,12.4549607 12.4549607,11.5597007 13.0650355,10.41896 C13.6751104,9.27821922 14,8.14671739 14,5.0264018 L14,0.838051287 Z" id="Combined-Shape"></path>
                     </g>
                 </g>
-                <rect id="Rectangle" stroke="#CAD3DE" stroke-width="7" x="54.5" y="48.5" width="720" height="520" rx="15"></rect>
-                <g id="Connector" transform="translate(0.000000, 223.000000)">
-                    <path d="M54.835291,116.910039 C50.7341181,121.012224 0.075448835,107.804101 0.0483551384,62.3355841 C0.0212614417,16.8670674 46.7766754,3.82585692 54.835291,7.53512579" id="Path-2" stroke="#8A9DB5" stroke-width="5"></path>
-                    <circle id="Oval-2" fill="#8A9DB5" cx="54.5" cy="6.5" r="6.5"></circle>
-                    <circle id="Oval-2-Copy" fill="#8A9DB5" cx="54.5" cy="62.5" r="6.5"></circle>
-                    <circle id="Oval-2-Copy-2" fill="#8A9DB5" cx="54.5" cy="117.5" r="6.5"></circle>
-                    <path d="M2.5,62.5 L54.5090902,62.5" id="Line" stroke="#8A9DB5" stroke-width="5" stroke-linecap="square"></path>
+                <rect id="Rectangle" stroke="#CAD3DE" stroke-width="7" x="39.5" y="48.5" width="720" height="520" rx="15"></rect>
+                <g id="Connector" transform="translate(0.000000, 279.000000)">
+                    <circle id="Oval-2-Copy" fill="#8A9DB5" cx="39.5" cy="6.5" r="6.5"></circle>
+                    <path d="M0.48718458,6.5 L39.5090902,6.5" id="Line" stroke="#8A9DB5" stroke-width="5" stroke-linecap="square"></path>
                 </g>
             </g>
         </g>
